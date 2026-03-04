@@ -1,0 +1,2 @@
+# AfroMed-db
+database repo
