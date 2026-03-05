@@ -35,10 +35,7 @@ BEGIN
             'INSERT',
             TG_TABLE_SCHEMA,
             TG_TABLE_NAME,
-            COALESCE(
-                NEW.org_id,
-                CASE WHEN TG_TABLE_NAME = 'organizations' THEN NEW.org_id ELSE NULL END
-            ),
+            (to_jsonb(NEW) ->> (TG_TABLE_NAME || '_id'))::UUID,
             to_jsonb(NEW)
         );
         RETURN NEW;
@@ -50,7 +47,7 @@ BEGIN
             'UPDATE',
             TG_TABLE_SCHEMA,
             TG_TABLE_NAME,
-            NEW.org_id,
+            (to_jsonb(NEW) ->> (TG_TABLE_NAME || '_id'))::UUID,
             to_jsonb(OLD),
             to_jsonb(NEW)
         );
@@ -63,7 +60,7 @@ BEGIN
             'DELETE',
             TG_TABLE_SCHEMA,
             TG_TABLE_NAME,
-            OLD.org_id,
+            (to_jsonb(OLD) ->> (TG_TABLE_NAME || '_id'))::UUID,
             to_jsonb(OLD)
         );
         RETURN OLD;
