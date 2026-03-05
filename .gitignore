@@ -29,3 +29,15 @@ obj/
 *.bak
 *.log
 
+# Environment files
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+*.tmp
+
