@@ -1,0 +1,27 @@
+# =============================================================
+# AfroMed Environment Configuration
+# SECURITY: Never commit this file to version control.
+# Copy .env.example to .env and update values before use.
+# =============================================================
+
+# ------------------------------------------------------------------
+# PostgreSQL — individual connection components
+# The entrypoint scripts construct the URI from these at runtime.
+# Format: postgresql://DB_USER:DB_PASSWORD@DB_HOST:DB_PORT/DB_NAME
+# ------------------------------------------------------------------
+DB_USER=afromed
+DB_PASSWORD=afromed_password
+DB_HOST=db
+DB_PORT=5435
+DB_NAME=afromed_local_database
+
+# ------------------------------------------------------------------
+# pgAdmin
+# ------------------------------------------------------------------
+PGADMIN_DEFAULT_EMAIL=admin@afromed.com
+PGADMIN_DEFAULT_PASSWORD=admin
+
+# pgAdmin server display labels (used when generating servers.json)
+PGADMIN_SERVER_NAME=AfroMed Local DB
+PGADMIN_SERVER_GROUP=Servers
+PGADMIN_SERVER_SSL_MODE=prefer
