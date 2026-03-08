@@ -34,7 +34,10 @@ echo "    Host = $DB_HOST  Port = $DB_PORT  DB = $DB_NAME  User = $DB_USER"
 # ------------------------------------------------------------------
 # Generate servers.json
 # ------------------------------------------------------------------
+# Write to /tmp/servers.json (writable by the pgadmin user) and export
+# PGADMIN_SERVER_JSON_FILE so pgAdmin loads the server definitions from it.
 SERVERS_FILE="${PGADMIN_SERVER_JSON_FILE:-/tmp/servers.json}"
+export PGADMIN_SERVER_JSON_FILE="$SERVERS_FILE"
 mkdir -p "$(dirname "$SERVERS_FILE")"
 
 cat > "$SERVERS_FILE" << SERVERS_EOF
