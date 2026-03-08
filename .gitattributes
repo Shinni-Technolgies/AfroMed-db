@@ -1,0 +1,4 @@
+# Ensure shell scripts always use LF line endings in the repo,
+# preventing "bad interpreter: \r" errors when running in Linux containers.
+*.sh    text eol=lf
+*.sql   text eol=lf

@@ -29,9 +29,11 @@ obj/
 *.bak
 *.log
 
+# Environment secrets — never commit
+.env
+
 # Environment files
 .env
-.env.*
 
 # OS files
 .DS_Store
